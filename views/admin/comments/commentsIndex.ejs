@@ -1,0 +1,50 @@
+<%- include('../../partials/admin/admin-header') -%>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include('../../partials/admin/admin-topNav') -%>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <div class="row">
+                <div class="container">
+                    <div class="col-md-10">
+                        <table class="table table-bordered text-center text-white">
+                            <thead class="bg-dark">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Publisher</th>
+                                    <th>Approve Comments</th>
+                                    <th>Date</th>
+                                    <th>Comment Body</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="text-dark">
+                                <% comments.forEach(function(comment){ %>
+                                <tr>
+                                    <td><%= comment._id%></td>
+                                    <td style="width: auto;"><%= user.firstName %> <%= user.lastName %></td>
+                                    <td><%= comment.commentIsApproved%></td>
+                                    <td><%= comment.date%></td>
+                                    <td><%= comment.body%></td>
+                                </tr>
+
+                                <%})%>
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <%- include('../../partials/admin/admin-footer') -%>
+</body>
+
+</html>
